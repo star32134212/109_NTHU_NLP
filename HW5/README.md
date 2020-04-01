@@ -14,6 +14,21 @@ P2 = Wi在word訓練集中的出現次數 / word訓練集中的總和字數
 Weighti = log(P1/P2)  
 
 接著比較整句話中要判斷的word以各個意思來看的Weight加總，最高的就是那個意思。  
+input:
+```
+word: bass
+query: Bass, catfish, and bluegill also inhabit the creek.
+most_similar(word, query)
+
+word: issue
+query: He's contributed to several publications, including LA Review of Books, Purple, Issue, and Hesperios Journal.
+most_similar(word, query)
+
+word: sentence
+query: If it finds the accused guilty, it passes sentence on the accused according to law.
+most_similar(word, query)
+```
+
 範例output:  
 ```
 most_similar('bass', 'Bass, catfish, and bluegill also inhabit the creek.') 
