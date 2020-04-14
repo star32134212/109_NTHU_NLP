@@ -1,5 +1,5 @@
 ## 4/14 繁體中文 文法改錯
-這次的作業比較麻煩，需要用到CKIP，CKIP是NLP在繁體中文斷詞中的霸主，是由台灣中研院資訊所、語言所於民國 75 年成立的中文語言言小組所開發，也在多個中文斷詞的比賽當中得過獎。在2019年9月終於開源了，要安裝這套工具，Python至少要3.6以上，且tensorflow的版本要小於2，因此我決定另外建一個虛擬環境來完成這次作業。  
+這次的作業比較麻煩，需要用到CKIP，CKIP是NLP在繁體中文斷詞中的霸主，是由台灣中研院資訊所、語言所於民國 75 年成立的中文語言言小組所開發，也在多個中文斷詞的比賽當中得過獎。在2019年9月終於[開源](https://github.com/ckiplab/ckiptagger/wiki/Chinese-README)了，要安裝這套工具，Python至少要3.6以上，且tensorflow的版本要小於2，因此我決定另外建一個虛擬環境來完成這次作業。  
 
 ### 虛擬環境
 `conda create --name myenv python=3.6` 雖然用conda介面也可以建，但不知為何我的按下去沒有反應，所以只好用command建一個名為`myenv`的虛擬環境，版本直接指定3.6。  
@@ -27,5 +27,8 @@ AttributeError: module 'tensorflow.compat' has no attribute 'v1'
 ```
 餵狗後的解法是直接去改api，從錯誤訊息中可以看到該api所在位置，直接vim他，找到tf.compat.v1.XXX的部分(XXX是他報錯的function)改成tf.XXX，vim可以直接用`/`去搜尋，很快就可以找到，改完有報錯就再去改api.py，改到沒報錯就可以了。  
 接著就可以開啟作業匯入要用到的工具了:  
-`from ckiptagger import WS, POS, NER`
+`from ckiptagger import WS, POS, NER`  
+不過還是要去[github](https://github.com/ckiplab/ckiptagger)上的**Download model files**那邊把model下載下來。  
+
 ### 作業
+[作業說明](https://hackmd.io/1MLfFAuDRB6orc4h8QZXrg?view)  
