@@ -1,7 +1,20 @@
 ## 4/14 繁體中文 文法改錯
-這次的作業比較麻煩，需要用到CKIP，CKIP是NLP在繁體中文斷詞中的霸主，是由台灣中研院資訊所、語言所於民國 75 年成立的中文語言言小組所開發，也在多個中文斷詞的比賽當中得過獎。在2019年9月終於[開源](https://github.com/ckiplab/ckiptagger/wiki/Chinese-README)了，要安裝這套工具，Python至少要3.6以上，且tensorflow的版本要小於2，因此我決定另外建一個虛擬環境來完成這次作業。  
+這次作業主要是介紹CKIP，並且使用CKIP完成一個簡易文法改錯標示工具。  
+input:  
+```
+orig = ['這', '也', '間接', '突顯出', '鴻海']
+cor = ['也', '直接', '透露出', '鴻海']
+```
 
+output:  
+```
+(2,'R','間接','直接')
+(3,'R','突顯出','透露出')
+(0,'D','這')
+```
+[作業說明](https://hackmd.io/1MLfFAuDRB6orc4h8QZXrg?view)  
 ### 虛擬環境
+要安裝這套工具，Python至少要3.6以上，且tensorflow的版本要小於2，因此我決定另外建一個虛擬環境來完成這次作業。  
 `conda create --name myenv python=3.6` 雖然用conda介面也可以建，但不知為何我的按下去沒有反應，所以只好用command建一個名為`myenv`的虛擬環境，版本直接指定3.6。  
 `source activate myenv` 如果是Linux或macOS可以這樣開啟虛擬環境，開啟後shell前面應該會出現`(虛擬環境名稱)`。  
 `activate myenv` Window的開啟方式略有不同。  
@@ -10,6 +23,7 @@
 `conda env remove --name myenv` 以後如果要把這個虛擬環境丟掉可以用conda直接刪。  
 `pip list` 可以看環境中所有載過的套件及其版本，不合的就uninstall掉重裝適合的版本。  
 ### 安裝 ckiptagger
+這次的作業需要用到CKIP，CKIP是NLP在繁體中文斷詞中的霸主，是由台灣中研院資訊所、語言所於民國 75 年成立的中文語言言小組所開發，也在多個中文斷詞的比賽當中得過獎。在2019年9月終於[開源](https://github.com/ckiplab/ckiptagger/wiki/Chinese-README)了。  
 ```
 pip install ckiptagger
 pip install tensorflow==1.9
@@ -30,5 +44,6 @@ AttributeError: module 'tensorflow.compat' has no attribute 'v1'
 `from ckiptagger import WS, POS, NER`  
 不過還是要去[github](https://github.com/ckiplab/ckiptagger)上的**Download model files**那邊把model下載下來。  
 
-### 作業
-[作業說明](https://hackmd.io/1MLfFAuDRB6orc4h8QZXrg?view)  
+### 其他用到的網站
+[中文單字詞性列表](https://github.com/ckiplab/ckiptagger/wiki/POS-Tags)  
+[CKIP介紹](https://clay-atlas.com/blog/2019/09/24/python-chinese-tutorial-ckiptagger/)  
