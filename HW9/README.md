@@ -1,5 +1,5 @@
 ## 5/6 搭配詞改錯
-統計式文法改錯並找出同意思的寫法。
+統計式文法改錯並找出同意思的寫法。  
 [作業要求](https://hackmd.io/tZ34-bq-SMeZ_Un64cCzDQ?view)  
 
 input:  
